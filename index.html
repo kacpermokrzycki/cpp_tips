@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>cap_nie_nauczył</title>
+      <title>ceplusplus</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -77,6 +77,37 @@ Klasy w przeciwieństwie do struktur mają metody, natomiast struktury zwyczajow
 </code></pre><p>Nazwa naszej klasy to StudentDebil.<br>
 Po co się daje średnik po klamrach? Żeby nie było za łatwo.<br>
 Tak sobie wymyślili, że klasy mają mieć średnik po klamrach.</p>
+<h5 id="tworzenie-obiektów">Tworzenie obiektów </h5>
+<p>Nasza klasa jest pusta, ale możemy zrobić obiekt do niej należący. Jest tak dlatego, bo automatycznie tworzony jest konstruktor domyślny, czyli taki który nie przyjmuje żadnych parametrów.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>StudentDebil stud;
+</code></pre><p>Obiekty tworzymy podobnie jak zmienne. Najpierw piszemy typ (w tym wypadku StudentDebil), a potem nazwę.<br>
+Tworzymy nasz obiekt w funkcji <code>main</code> , a nie wewnątrz klasy!</p>
+<h5 id="pola">Pola </h5>
+<p>Dodajmy do naszej klasy jakieś pola, żeby klasa miała jakiś sens.<br>
+Zróbmy je publiczne. Wszystko co będzie pod słowem <code>public:</code> takie będzie.<br>
+Dzięki temu dostaniemy się do tych pól poza klasą.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Class StudentDebil{
+public:
+    std::string imie;
+    std::string nazwisko;
+    int numer_albumu;
+};
+</code></pre><p>Teraz możemy w funkcji <code>main</code> ustawić jakoś te pola dla naszego studenta <code>stud</code></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>StudentDebil stud;
+stud.imie = "Włodzimierz";
+stud.nazwisko = "Biały";
+stud.numer_albumu = 6666;
+</code></pre><h5 id="konstruktory">Konstruktory </h5>
+<p>Aby nie ustawiać wszystkich wartości obiektu na piechotę, możemy to ułatwić tworząc własny konstruktor.<br>
+Napiszmy wewnątrz klasy coś takiego:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>StudentDebil(std::string im, std::string naz, int album){
+    imie = im;
+    nazwisko = naz;
+    numer_albumu = album;
+}
+</code></pre><p>Wygląda to jak funkcja, ale ma nazwę taką samą jak klasa i nie definujemy zwracanego typu.<br>
+Jako parametry podajemy mu jego właściwości, które automatycznie przypisze do obiektu.<br>
+Aby użyć konstruktor poza klasą musi być publiczny!</p>
 <hr>
 <h5 id="lista-inicjalizacyjna">Lista inicjalizacyjna </h5>
 <p>To niżej jest konstruktor bez listy inicjalizacyjnej przyjmujący dwa parametry, które przypisują je do współrzędnych tworzonego punkta x i y.</p>
